@@ -17,85 +17,129 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, helvetica neue, segoe ui, noto sans japanese, ヒラギノ角ゴ pron w3, Meiryo, sans-serif;
             margin: 0;
-            background-color: #d12220;
-            background-image: url("smilesanta.jpg");
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            flex-flow: column;
+            font-size: 16px;
             min-height: 100vh;
-            color: white;
-            text-align: center;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
-        
+
         svg {
-            margin-top: 10vh;
+            height: 20em;
+            flex-shrink: 0;
         }
-        
+
+        main {
+            margin-left: 10em;
+            flex-shrink: 1;
+        }
+
         a {
-            color: inherit;
+            color: #000;
+            font-size: 2em;
         }
-        
-        h1 {
-            font-size: 20vw;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 1000px;
+            display: flex;
+            flex-wrap: wrap;
         }
-        
-        h2 {
-            font-size: 10vw;
+
+        li {
+            min-width: 400px;
         }
-        
-        @media (min-width: 800px), (max-height: 400px) {
+
+        a, .suffix {
+            transition: opacity 1s;
+        }
+
+        .suffix {
+            font-size: 0;
+            opacity: 0;
+        }
+
+        a:hover {
+            color: #0072b2;
+        }
+
+        a:hover .suffix {
+            color: #0072b2;
+            opacity: 1;
+            font-size: 1em;
+        }
+
+        @media (max-width: 800px) {
             body {
-                background-image: url("pointersanta.jpg");
-                background-position: center right;
-                flex-flow: row;
-                flex-direction: row-reverse;
-                text-align: left;
+                flex-direction: column-reverse;
             }
-
-            svg {
-                margin: 5vw;
+            main {
+                margin: 0;
+                padding: 0 1em;
             }
-
-            h1 {
-                margin-top:0;
-                font-size: 3em;
+            ul {
+                display: block;
             }
-    
-            h2 {
-                font-size: 2em;
+            li {
+                min-width: unset;
             }
         }
     </style>
 </head>
 
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" style="fill:#fff; height: 50vh;" viewBox="0 0 120 210">
-        <g style="fill:none;stroke:#fff;stroke-width:5">
+    <svg xmlns="http://www.w3.org/2000/svg" style="fill:#000" viewBox="0 0 120 210">
+        <g style="fill:none;stroke:#000;stroke-width:5">
             <path d="m 60,20 c 44,-26 49,-8 49,-8 0,0 9,27 -49,8 z" />
             <path d="m 60,20 c -51,-14 -54,4 -54,4 0,0 0,27 54,-4 z" />
             <path d="m 60,20 c -10,49 -1,59 -1,59 8,12 34,44 0,51 -46,9 -43,43 -43,43 0,0 1,32 56,27 55,-5 43,-42 43,-42 0,0 -10,-36 -56,-28" />
         </g>
         <ellipse cx="40" cy="160" rx="6" ry="9" />
         <ellipse cx="80" cy="160" rx="6" ry="9" />
+        <g style="fill:#fff">
+            <ellipse cx="43" cy="156" rx="2" ry="4" />
+            <ellipse cx="83" cy="156" rx="2" ry="4" />
+        </g>
     </svg>
     <main>
         <h1>Kotet.jp</h1>
-        <p>
-            <a href="https://blog.kotet.jp/">
-                <h2>Blog</h2>
-            </a>
-        </p>
-        <p>
-            <a href="https://github.com/kotet/">
-                <h2>GitHub</h2>
-            </a>
-        </p>
-        <p>
-            <a href="https://twitter.com/kotetttt/">
-                <h2>Twitter</h2>
-            </a>
-        </p>
+        <ul>
+            <li>
+                <a href="https://blog.kotet.jp/">
+                    <span>Blog</span><span class="suffix">.kotet.jp</span>
+                </a>
+                <p>
+                    Kotetのブログ。<br>大体の情報はここに集約されている
+                </p>
+            </li>
+            <li>
+                <a href="https://clock.kotet.jp/">
+                    <span>Clock</span><span class="suffix">.kotet.jp</span>
+                </a>
+                <p>
+                    初期バージョンは10分で完成したシンプルな時計。<br>全画面表示するとあらゆる端末がただのデジタル時計と化す
+                </p>
+            </li>
+            <li>
+                <a href="https://github.com/kotet/">
+                    <span>GitHub</span><span class="suffix">.com/kotet</span>
+                </a>
+                <p>
+                    GitHubアカウント。<br>主にD言語を書いている
+                </p>
+            </li>
+            <li>
+                <a href="https://twitter.com/kotetttt/">
+                    <span>Twitter</span><span class="suffix">.com/kotetttt</span>
+                </a>
+                <p>
+                    Twitterアカウント。<br>統計情報を見たら閲覧時間が思ったより長くてビビる
+                </p>
+            </li>
+        </ul>
     </main>
 </body>
 
