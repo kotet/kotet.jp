@@ -95,9 +95,8 @@ window.addEventListener("load", function () {
     }
     function resize_canvas() {
         if (canvas.width != window.innerWidth || canvas.height != window.innerHeight) {
-            console.log("resize:" + canvas.width + "," + canvas.height + " -> " + window.innerWidth + "," + window.innerHeight);
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth * devicePixelRatio;
+            canvas.height = window.innerHeight * devicePixelRatio;
             init();
         }
     }
