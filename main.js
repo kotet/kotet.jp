@@ -243,7 +243,7 @@ window.addEventListener("load", function () {
             diffuse_light_intensity += state.lights[i].intensity * Math.max(0, dotp(light_dir, intersect.N));
             specular_light_intensity += Math.pow(Math.max(0, dotp(neg(reflect(neg(light_dir), intersect.N)), dir)), intersect.material.specular_exponent) * state.lights[i].intensity;
         }
-        let a = intersect.material.diffuse_color[color] * diffuse_light_intensity * intersect.material.albedo[0];
+        let a = intersect.material.diffuse_color[color] * Math.max(diffuse_light_intensity, 0.1) * intersect.material.albedo[0];
         let b = specular_light_intensity * intersect.material.albedo[1];
         let c = reflect_color * intersect.material.albedo[2];
         let d = refract_color * intersect.material.albedo[3];
